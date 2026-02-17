@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphic Designer Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="src/styles.css">
+    <script src="src/script.js" defer></script>
+</head>
+
+<body class="theme-dark">
+    <!-- Graphic Design App Loader -->
+    <div id="loader-wrapper" class="design-app-loader">
+        <div class="app-header">
+            <div class="window-controls">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="app-title">Cronos_Design_v1.0.exe</div>
+        </div>
+
+        <div class="app-body">
+            <!-- Left Toolbar -->
+            <div class="app-toolbar">
+                <div class="tool-icon" id="tool-move">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M10,19V13H4V11H10V5L15,12L10,19Z" />
+                    </svg> <!-- Fake Move -->
+                </div>
+                <div class="tool-icon" id="tool-pen">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M14.06,9L15,9.94L5.92,19H5V18.08L14.06,9M17.66,3C17.41,3 17.15,3.1 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18.17,3.09 17.92,3 17.66,3M14.06,6.19L3,17.25V21H6.75L17.81,9.94L14.06,6.19Z" />
+                    </svg>
+                </div>
+                <div class="tool-icon active-tool" id="tool-type"> <!-- Starts inactive, becomes active -->
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M18.5,4L19.66,8.35L18.7,8.61C18.25,7.74 17.79,6.87 17.26,6.43C16.73,6 16.11,6 15.5,6H13V16.5C13,17 13,17.5 13.33,17.75C13.67,18 14.33,18 15,18V19H9V18C9.67,18 10.33,18 10.67,17.75C11,17.5 11,17 11,16.5V6H8.5C7.89,6 7.27,6 6.74,6.43C6.21,6.87 5.75,7.74 5.3,8.61L4.34,8.35L5.5,4H18.5Z" />
+                    </svg>
+                </div>
+                <div class="tool-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect width="18" height="18" x="3" y="3" fill="none" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Main Canvas -->
+            <div class="app-canvas">
+                <div class="canvas-content">
+                    <h1 class="loader-brand-text">CRONOS</h1>
+                    <div class="typing-cursor">|</div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar (Properties) -->
+            <div class="app-sidebar">
+                <div class="sidebar-panel">
+                    <div class="panel-header">LAYERS</div>
+                    <div class="layer-item active">
+                        <div class="layer-icon type">T</div>
+                        <div class="layer-name">Brand_Name</div>
+                        <div class="layer-eye"></div>
+                    </div>
+                    <div class="layer-item">
+                        <div class="layer-icon shape"></div>
+                        <div class="layer-name">Background</div>
+                        <div class="layer-eye"></div>
+                    </div>
+                </div>
+                <div class="sidebar-panel properties">
+                    <div class="panel-header">PROPERTIES</div>
+                    <div class="prop-row">
+                        <div class="label"></div>
+                        <div class="val"></div>
+                    </div>
+                    <div class="prop-row">
+                        <div class="label"></div>
+                        <div class="val"></div>
+                    </div>
+                    <div class="prop-row">
+                        <div class="label"></div>
+                        <div class="val"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Cursor -->
+        <div class="app-cursor-pointer">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+                <path fill="white" stroke="black" stroke-width="1"
+                    d="M7,2L17.5,12.5L12,14L11,19L8.5,18L9.5,13L4,16L7,2Z" />
+            </svg>
+        </div>
+    </div>
+    <canvas id="particle-canvas"></canvas>
+    <div class="bg-overlay-light"></div>
+    <header class="header floating-nav">
+        <div class="logo">Cronos Creations</div>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#universe">Universe</a>
+        <a href="#hire">Hire Me</a>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="reveal-text">I am a <span class="typing-text"></span><span class="cursor"></span>|</h1>
+                <p class="reveal-text">Crafting digital experiences with vivid precision and bold typography.</p>
+                <div class="cta-group reveal-text">
+                    <a href="#universe" class="btn primary">Explore Universe</a>
+                    <a href="#hire" class="btn secondary">Hire Me</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="design-tool-ui">
+                    <div class="tool-window">
+                        <div class="window-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="window-body">
+                            <div class="toolbar-rail">
+                                <div class="tool-icon">T</div>
+                                <div class="tool-icon active"><svg viewBox="0 0 24 24" width="16" height="16"
+                                        stroke="currentColor" stroke-width="2" fill="none">
+                                        <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"></path>
+                                    </svg></div>
+                                <div class="tool-icon"></div>
+                            </div>
+                            <div class="canvas-area">
+                                <div class="artboard-element">
+                                    <span class="animating-text">Aa</span>
+                                    <div class="selection-frame">
+                                        <div class="handle tl"></div>
+                                        <div class="handle tr"></div>
+                                        <div class="handle bl"></div>
+                                        <div class="handle br"></div>
+                                    </div>
+                                </div>
+                                <div class="mouse-cursor">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="white" stroke="black"
+                                        stroke-width="1">
+                                        <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="property-panel">
+                                <div class="panel-row"></div>
+                                <div class="panel-row"></div>
+                                <div class="panel-row"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <div class="image-frame">
+                            <img src="assets/images/Profile.png" alt="Cronos Profile" class="profile-img">
+                        </div>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <h2>About Cronos</h2>
+                            <p>I don't just design; I engineer visual systems. With a background deeply rooted in
+                                typography
+                                and digital interaction, I bridge the gap between static aesthetics and dynamic user
+                                experiences.</p>
+                            <p>My philosophy is simple: <strong>Make it bold, make it functional, make it
+                                    memorable.</strong></p>
+                        </div>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">2+</span>
+                                <span class="stat-label">Years Exp.</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Pixel Perfect</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="universe" class="universe-section">
+            <div class="container">
+                <h2>Cronos Universe</h2>
+                <p class="section-subtitle">A collection of digital realities.</p>
+                <div class="gallery-grid">
+                    <!-- Project Card 1 -->
+                    <!-- Project Card 1 -->
+                    <a href="https://drive.google.com/drive/folders/1hCe10IUpNEsW8IlTxKr1Zmh3ITbQWJyU?usp=sharing"
+                        target="_blank" class="project-card">
+                        <div class="card-image-wrapper">
+                            <img src="assets/images/type-settings.svg" alt="Type Settings" class="project-image">
+                            <div class="card-overlay">
+                                <span class="view-indicator">View Project <svg width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg></span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Type Settings</h3>
+                            <p class="card-tags">Typography / Layout</p>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 2 -->
+                    <!-- Project Card 2 -->
+                    <a href="https://drive.google.com/drive/folders/15-2rTZ03cDSv0_X51W57y5LkrGH7esAX?usp=sharing"
+                        target="_blank" class="project-card">
+                        <div class="card-image-wrapper">
+                            <img src="assets/images/graphic-design.svg" alt="Graphic Design" class="project-image">
+                            <div class="card-overlay">
+                                <span class="view-indicator">View Project <svg width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg></span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Graphic Design</h3>
+                            <p class="card-tags">Branding / Visual Identity</p>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 3 -->
+                    <div class="project-card" id="side-projects-card" style="cursor: pointer;">
+                        <div class="card-image-wrapper">
+                            <img src="assets/images/side-projects.svg" alt="Side Projects" class="project-image">
+                            <div class="card-overlay">
+                                <span class="view-indicator">View Project <svg width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg></span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Side Projects</h3>
+                            <p class="card-tags">Experimental / Code</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hire" class="hire-section">
+            <div class="container">
+                <div class="hire-content">
+                    <h2>Hire Cronos</h2>
+                    <p class="lead">Ready to bring your vision to life? Let's collaborate.</p>
+                    <div class="contact-methods">
+                        <a href="mailto:personalmail.mahimafernando@gmail.com" class="contact-pill">
+                            <span class="pill-label">Mail</span>
+                            <span class="pill-value">personalmail.mahimafernando@gmail.com</span>
+                        </a>
+                        <a href="https://wa.me/94712243331" class="contact-pill" target="_blank">
+                            <span class="pill-label">WhatsApp</span>
+                            <span class="pill-value">+94712243331</span>
+                        </a>
+                        <a href="https://instagram.com/r.cronos" class="contact-pill" target="_blank">
+                            <span class="pill-label">Instagram</span>
+                            <span class="pill-value">r.cronos</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="main-footer">
+        <div class="footer-watermark">CRONOS</div>
+
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Cronos Creations</h3>
+                <p>Pushing the boundaries of digital art through constant experimentation. From concept to creation, I
+                    craft visuals that stand out.</p>
+            </div>
+
+            <div class="footer-nav">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#universe">Universe</a></li>
+                    <li><a href="#hire">Hire Me</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="mailto:personalmail.mahimafernando@gmail.com">Email</a></li>
+                    <li><a href="https://wa.me/94712243331">WhatsApp</a></li>
+                    <li><a href="https://instagram.com/r.cronos">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2026 all right recieved. <span class="brand-text">Cronos Creations</span></p>
+            </div>
+            <div class="credits">
+                <p>Mahima Fernando</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="dev-popup" class="popup-overlay hidden">
+        <div class="popup-content">
+            <h3>Work in Progress</h3>
+            <p>This section is currently under development. Stay tuned!</p>
+            <button id="close-popup">Got it</button>
+        </div>
+    </div>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+</body>
+
+</html>
